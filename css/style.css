@@ -1,0 +1,218 @@
+/* General Styling for the Controls */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+  -moz-appearance:textfield; /* Firefox */
+}
+
+#container {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background: linear-gradient(to bottom, #000000 0%, #000000 50%, #12002a 75%, #1c0046 100%);
+}
+
+/* Footer Styles */
+footer {
+  height: 1.5em;
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #222;
+  color: white;
+}
+
+.footerText {
+  color: white;
+  text-decoration: none;
+}
+
+.title {
+  margin-bottom: 0 !important;
+}
+
+.disclaimer {
+  font-size: 8px;
+  display: none;
+}
+
+.controls {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.2); /* White with 80% transparency */
+  padding: 15px;
+  border-radius: 10px;
+  z-index: 2;
+  color: #fff; /* White text for better contrast */
+  width: 400px; /* Fixed width for the controls */
+}
+
+.controls input {
+  margin: 5px 0;
+}
+
+/* Ensure buttons and input fields are in the same line */
+.input-group {
+  display: flex;
+  align-items: center;  /* Align the items in the center vertically */
+  justify-content: space-between; /* Ensure proper spacing between buttons and input */
+}
+
+.input-group .form-control {
+  flex: 1; /* Take up the remaining space */
+  margin: 0; /* Remove margin for proper alignment */
+}
+
+.input-group .btn {
+  flex-shrink: 0; /* Prevent the buttons from shrinking */
+  width: 40px; /* Fixed width for the buttons */
+  height: 100%; /* Make buttons the same height as the input fields */
+  font-size: 18px; /* Larger font size */
+  padding: 0; /* Remove extra padding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Styles for the readonly input fields */
+input[readonly] {
+  background-color: #e0e0e0;  /* Grey background */
+  color: #777;                 /* Dark grey text */
+  border: 1px solid #bbb;      /* Lighter border */
+  cursor: not-allowed;         /* Indicate no editing */
+}
+
+/* For the Quantum state formula */
+.quantum-state-formula {
+  margin-top: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #333;
+}
+
+/* Mobile-responsive adjustments */
+@media (max-width: 768px) {
+  #container {
+    height: 75vh; /* The scene takes up 75% of the height on small screens */
+  }
+
+  .disclaimer {
+    display: unset;
+  }
+
+  .controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    background-color: rgba(255, 255, 255, 1.0); /* Slightly more opaque for readability */
+    padding: 10px 15px;
+    border-radius: 10px 10px 0 0;
+    z-index: 10;
+    color: #000; /* Black text for readability */
+    width: 100%; /* Full width for the controls */
+    height: 25vh; /* Make controls take up 25% of the screen height */
+    overflow-y: auto; /* Allow scrolling if content exceeds */
+    font-size: 12px; /* More compact font */
+  }
+
+  /* Ensure inputs take full width on mobile */
+  .controls .input-group {
+    width: 100%;
+  }
+
+  .controls .col {
+    flex: 1 1 48%; /* Make columns take 48% of the available width */
+  }
+
+  .input-group .form-control {
+    font-size: 12px; /* Slightly smaller input fields on mobile */
+  }
+
+  /* Adjust button and input alignment */
+  .input-group {
+    width: 100%;
+  }
+
+  .input-group .form-control {
+    width: 80%;
+  }
+
+  .input-group .btn {
+    width: 20%; /* Buttons take 20% of the width */
+    font-size: 20px;
+  }
+
+  /* Button Group Layout */
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+
+  .btn {
+    margin: 5px 0;
+  }
+
+  .phase {
+    display: none;
+  }
+
+  /* Adjusting header size for compactness */
+  .controls h3, .controls h4, .controls h5 {
+    font-size: 16px; /* Smaller header font */
+    margin-bottom: 5px;
+  }
+
+  /* For the Quantum state formula */
+  .quantum-state-formula {
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #333;
+    white-space: pre-wrap;
+  }
+}
+
+/* Large screen adjustments (more structured layout for α and β) */
+@media (min-width: 769px) {
+  /* Ensure aRe and aIm are on one row, and bRe and bIm on another */
+  .controls .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  /* Keep the input field and buttons in a single line */
+  .input-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align elements to the start */
+    width: 100%; /* Full width for input group */
+  }
+
+  .input-group .form-control {
+    width: 80%; /* Input fields take 80% of the width */
+  }
+
+  .input-group .btn {
+    width: 20%; /* Buttons take 20% of the width */
+    height: 100%; /* Match button height to input field height */
+    font-size: 24px;
+  }
+}
