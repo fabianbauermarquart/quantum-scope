@@ -27,6 +27,14 @@ const gates = {
   'T': [
     [new Complex(1, 0), new Complex(0, 0)],
     [new Complex(0, 1 / Math.sqrt(2)), new Complex(0, 1 / Math.sqrt(2))],
+  ],
+  'm0': [
+    [new Complex(1, 0), new Complex(0, 0)],
+    [new Complex(0, 0), new Complex(0, 0)],
+  ],
+  'm1': [
+    [new Complex(0, 0), new Complex(0, 0)],
+    [new Complex(0, 0), new Complex(1, 0)],
   ]
 };
 
@@ -121,8 +129,10 @@ function updateQuantumStateLines(quantumState) {
 // Function to dynamically update the quantum state formula in the controls
 export function updateQuantumStateFormula(aRe, aIm, bRe, bIm) {
   const formulaElement = document.getElementById('quantumFormula');
-
   formulaElement.textContent = `|ψ⟩ = (${aRe.toFixed(2)} + ${aIm.toFixed(2)}i)|0⟩ + (${bRe.toFixed(2)} + ${bIm.toFixed(2)}i)|1⟩`;
+
+  const measurementElement = document.getElementById('quantumMeasurementProbabilities');
+  measurementElement.textContent = `|α|² = ${((aRe * aRe) + (aIm * aIm)).toFixed(2)}, |β|² = ${((bRe * bRe) + (bIm * bIm)).toFixed(2)}`
 }
 
 // Set a quantum state

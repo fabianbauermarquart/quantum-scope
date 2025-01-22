@@ -51,12 +51,17 @@
 </head>
 <body>
 
+<!-- Header for the title -->
+<header class="title-header">
+  <h1 class="title">Quantum Scope</h1>
+</header>
+
 <div id="container" class="d-flex justify-content-center align-items-center"></div>
 
 <div class="container">
   <div class="controls p-3 border rounded">
     <h1 class="mb-4 title">Quantum Scope</h1>
-    Qubit State Visualizer <a class="disclaimer" href="http://bauer-marquart.com">&copy; 2025 Fabian Bauer-Marquart. All rights reserved.</a>
+    <div class="subtitle">Qubit State Visualizer <a class="disclaimer" href="http://bauer-marquart.com">&copy; 2025 Fabian Bauer-Marquart. All rights reserved.</a></div>
 
     <!-- Row for aRe, aIm, bRe, bIm -->
     <div class="row mb-3">
@@ -94,17 +99,11 @@
       </div>
     </div>
 
-
-    <!-- Row for theta, phi -->
-    <div class="row mb-3">
-      <div class="col">
-        <label for="theta" class="form-label">θ</label>
-        <input readonly type="number" id="theta" class="form-control" value="0" step="0.01" min="0" max="π">
-      </div>
-      <div class="col">
-        <label for="phi" class="form-label">ϕ</label>
-        <input readonly type="number" id="phi" class="form-control" value="0" step="0.01" min="-π" max="π">
-      </div>
+    <!-- Quantum measurement probabilities -->
+    <div class="mt-4">
+      <strong>Quantum Measurement Probabilities</strong>
+      <div id="quantumMeasurementProbabilities" class="text-break"></div>
+      <p></p>
     </div>
 
     <h4 class="mt-4">Set to Quantum State</h4>
@@ -129,6 +128,19 @@
       <button class="btn btn-primary" onclick="modifyState('H')">H</button>
       <button class="btn btn-primary" onclick="modifyState('S')">S</button>
       <button class="btn btn-primary" onclick="modifyState('T')">T</button>
+      <!-- <button class="btn btn-primary" onclick="modifyState('measure')">T</button> -->
+    </div>
+
+    <!-- Row for theta, phi -->
+    <div class="row mb-3">
+      <div class="col">
+        <label for="theta" class="form-label">θ</label>
+        <input readonly type="number" id="theta" class="form-control" value="0" step="0.01" min="0" max="π">
+      </div>
+      <div class="col">
+        <label for="phi" class="form-label">ϕ</label>
+        <input readonly type="number" id="phi" class="form-control" value="0" step="0.01" min="-π" max="π">
+      </div>
     </div>
 
     <!-- Quantum state formula -->
@@ -150,6 +162,8 @@
         <strong>z:</strong> <span id="zCoord">0</span>
       </div>
     </div>
+
+    <div class="subtitle-mobile"></p>Qubit State Visualizer <a class="disclaimer" href="http://bauer-marquart.com">&copy; 2025 Fabian Bauer-Marquart. All rights reserved.</a></div>
   </div>
 </div>
 

@@ -106,6 +106,28 @@ input[readonly] {
 
 /* Mobile-responsive adjustments */
 @media (max-width: 768px) {
+  /* Fixed title styles */
+  .title-header {
+    position: fixed;
+    color: white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;  /* Make background transparent */
+    z-index: 1000;  /* Ensure it stays on top of other elements */
+    text-align: center;
+    padding: 10px 0;
+    pointer-events: none;  /* Make the title non-interactive */
+  }
+
+  .title-header .title {
+    display: unset;
+  }
+
+  .subtitle {
+    display: none;
+  }
+
   #container {
     height: 75vh; /* The scene takes up 75% of the height on small screens */
   }
@@ -129,6 +151,10 @@ input[readonly] {
     height: 25vh; /* Make controls take up 25% of the screen height */
     overflow-y: auto; /* Allow scrolling if content exceeds */
     font-size: 12px; /* More compact font */
+  }
+
+  .title {
+    display: none;
   }
 
   /* Ensure inputs take full width on mobile */
@@ -191,6 +217,15 @@ input[readonly] {
 
 /* Large screen adjustments (more structured layout for α and β) */
 @media (min-width: 769px) {
+  /* Fixed title styles */
+  .title-header {
+    display: none;
+  }
+
+  .subtitle-mobile {
+    display: none;
+  }
+
   /* Ensure aRe and aIm are on one row, and bRe and bIm on another */
   .controls .row {
     display: flex;

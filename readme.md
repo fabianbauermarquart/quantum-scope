@@ -11,15 +11,11 @@ You can access the live version of Quantum Scope [here](https://bauer-marquart.c
 ### Features:
 - **Real-time Normalization**: The real (`Re`) and imaginary (`Im`) components of both **α** and **β** are dynamically adjusted to ensure the quantum state remains normalized.
 - **Interactive Interface**: Input fields for modifying the components of the quantum state and buttons to adjust the values interactively.
-- **Responsive Layout**: The interface automatically adapts to large and small screens, ensuring usability across devices.
 - **Bloch Sphere Visualization**: Although not part of this project directly, the app's normalization ensures the state corresponds to points on the Bloch sphere, making it suitable for further visualization.
 
 ### Technologies Used:
-- **HTML**: Provides the basic structure of the user interface.
-- **CSS**: For styling and ensuring a responsive layout using Flexbox.
-- **JavaScript**: Handles logic to calculate and normalize the quantum state based on user input.
+- **THREE.js**: Handles 3D graphics to visualize the quantum state based on user input.
 - **Math**: Used to compute the norms of **α** and **β** and adjust the values while ensuring the quantum state remains valid.
-- **Flexbox**: Ensures a dynamic and responsive layout for buttons and input fields.
 
 ## Installation
 
